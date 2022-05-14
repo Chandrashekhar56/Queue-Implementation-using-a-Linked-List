@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+  class Node_for_Queue
+  {
+    	constructor(item)
+    	{
+    		this.data_part = item;
+    		this.next_part = null;
+    	}
+  }
+  var front_end = null, rear_end = null;
+    function EnqueueOperation(item)
+    {
+    		let temporary = new Node_for_Queue(item);
+        document.write("After Element Inserted: ");
+    		if (rear_end == null)
+        {
+    			  front_end = rear_end = temporary;
+            let ptr=front_end;
+            while(ptr !=null)
+            {
+                document.write(ptr.data_part+"<==");
+                ptr=ptr.next_part;
+
+            }
+            document.write("<br/>");
+    		}
+        else
+        {
+    	    	rear_end.next_part = temporary;
+    		    rear_end = temporary;
+            let ptr=front_end;
+            while(ptr!=null)
+            {
+                document.write(ptr.data_part+"<==");
+                ptr=ptr.next_part;
+
+            }
+            document.write("<br/>");
+        }
+      }
+      function DequeueOperation()
+      {
+            if (front_end == null)
+            {
+                  document.write("Queue is empty");
+            }
+            else
+            {
+                  front_end = front_end.next_part;
+                  if(front_end==null)
+                  {
+                        rear_end=null;
+                        document.write("Queue is empty");
+                  }
+                  else
+                  {
+                        document.write("After Element Deleted: ");
+                        let ptr=front_end;
+                        while(ptr!=null)
+                        {
+                            document.write(ptr.data_part +"==>");
+                            ptr=ptr.next_part;
+
+                        }
+                      document.write("<br/>");
+                  }
+              }
+        }
+        function display()
+        {
+	              if (front_end==null || rear_end==null)
+                {
+                      document.write("Queue is empty");
+                }
+                else
+                {
+                      document.write("Elements in Queue: ");
+                      let ptr=front_end;
+                      while(ptr != null)
+                      {
+                          document.write(ptr.data_part+"  ");
+                          ptr=ptr.next_part;
+
+                      }
+                }
+        }
+        function Position_of_front_And_rear()
+	      {
+              	if(front_end==null || rear_end==null)
+                {
+                      document.write("Queue is empty");
+                }
+                else
+                {
+                    document.write("Position of front in Queue : " +front_end.data_part+"<br/>");
+                    document.write("Position of rear in Queue  : " +rear_end.data_part+"<br/>");
+                }
+	     }
+EnqueueOperation(11);
+EnqueueOperation(21);
+EnqueueOperation(31);
+EnqueueOperation(41);
+EnqueueOperation(51);
+EnqueueOperation(61);
+EnqueueOperation(71);
+EnqueueOperation(81);
+EnqueueOperation(91);
+EnqueueOperation(101);
+EnqueueOperation(11);
+EnqueueOperation(121);
+EnqueueOperation(131);
+document.write("<br/>");
+DequeueOperation();
+DequeueOperation();
+DequeueOperation();
+DequeueOperation();
+DequeueOperation();
+DequeueOperation();
+document.write("<br/>");
+Position_of_front_And_rear();
+document.write("<br/>");
+display();
+</script>
+</body>
+</html>
